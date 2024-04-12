@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/tab_home"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/tab_home"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/tab_like">
+
+        <ImageView
+            android:id="@+id/tab_home_img"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/svg_home" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/tab_like"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tab_home"
+        app:layout_constraintRight_toRightOf="@id/tab_info">
+
+        <ImageView
+            android:id="@+id/tab_like_img"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:src="@drawable/svg_like" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/tab_info"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/tab_like"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <ImageView
+            android:id="@+id/tab_info_img"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/svg_menu" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
