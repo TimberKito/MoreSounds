@@ -16,7 +16,7 @@
     <LinearLayout
         android:id="@+id/tab_home"
         android:layout_width="0dp"
-        android:layout_height="64dp"
+        android:layout_height="56dp"
         android:background="@color/white"
         android:gravity="center"
         android:orientation="vertical"
@@ -28,14 +28,15 @@
             android:id="@+id/tab_home_img"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/svg_home" />
+            android:padding="4dp"
+            android:src="@drawable/selector_home" />
     </LinearLayout>
 
 
     <LinearLayout
         android:id="@+id/tab_like"
         android:layout_width="0dp"
-        android:layout_height="64dp"
+        android:layout_height="56dp"
         android:background="@color/white"
         android:gravity="center"
         android:orientation="vertical"
@@ -45,16 +46,16 @@
 
         <ImageView
             android:id="@+id/tab_like_img"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:src="@drawable/svg_like" />
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/selector_like" />
     </LinearLayout>
 
 
     <LinearLayout
         android:id="@+id/tab_info"
         android:layout_width="0dp"
-        android:layout_height="64dp"
+        android:layout_height="56dp"
         android:background="@color/white"
         android:gravity="center"
         android:orientation="vertical"
@@ -66,7 +67,8 @@
             android:id="@+id/tab_info_img"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/svg_menu" />
+            android:padding="4dp"
+            android:src="@drawable/selector_menu" />
     </LinearLayout>
 
 

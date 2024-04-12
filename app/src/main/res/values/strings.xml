@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">MoreSounds</string>
 
-
     <string name="like_page_name">My Collection</string>
-    <string name="info_page_name">About App</string>
+    <string name="info_page_name">About Apps</string>
+    <string name="info_page_google_play">Give us a good rating!</string>
+    <string name="info_page_share">Share our application!</string>
+    <string name="shop_link">https://play.google.com/store/apps/details?id=</string>
 </resources>
