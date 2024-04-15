@@ -9,7 +9,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:background="@color/white" />
 
     <TextView
@@ -24,6 +24,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_home"
+        android:paddingStart="32dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="4dp" />

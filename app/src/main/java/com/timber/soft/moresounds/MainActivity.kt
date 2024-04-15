@@ -3,6 +3,7 @@ package com.timber.soft.moresounds
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -19,14 +20,12 @@ class MainActivity : AppCompatActivity(), OnPageChangeListener {
     private var viewPagerFragment = mutableListOf<Fragment>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         // 设置沉浸式状态栏
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             window.decorView.systemUiVisibility =
                 (View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE) or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
             window.statusBarColor = Color.TRANSPARENT
         }
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewPagerFragment.add(HomeFragment())
@@ -54,8 +53,6 @@ class MainActivity : AppCompatActivity(), OnPageChangeListener {
         binding.tabInfo.setOnClickListener {
             setTabSelect(2)
         }
-
-
     }
 
     private fun setTabSelect(position: Int) {
@@ -80,6 +77,7 @@ class MainActivity : AppCompatActivity(), OnPageChangeListener {
                 binding.tabInfoImg.isSelected = true
                 binding.viewpager.currentItem = 2
             }
+
         }
     }
 

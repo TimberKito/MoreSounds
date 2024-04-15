@@ -14,9 +14,8 @@ class LikeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         binding = FragmentLikeBinding.inflate(layoutInflater)
         return binding.root
-
-
     }
 }
