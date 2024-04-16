@@ -48,14 +48,14 @@ class DetailsActivity : AppCompatActivity() {
             layoutManager = GridLayoutManager(context, 3)
 
             adapter =
-                DetailsCardAdapter(context, dataListModels, object : OnDetailsItemClickListener {
-                    override fun onItemClick(position: Int, dataListModel: DataListModel) {
-//                        val intent = Intent(requireContext(), DetailsActivity::class.java)
-//                        intent.putExtra("KEY_EXTRA", categoryModel)
-//                        startActivity(intent)
-                        Log.d("DetailsOnClick", "item has been click!")
-                    }
-                })
+                DetailsCardAdapter(
+                    context, dataListModels
+                ) { _, dataListModel ->
+                    val intent = Intent(context, PlayActivity::class.java)
+                    intent.putExtra("KEY_EXTRA", dataListModel)
+                    startActivity(intent)
+                    Log.d("DetailsOnClick", "item has been click!")
+                }
 
         }
 

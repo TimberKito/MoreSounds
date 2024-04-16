@@ -33,16 +33,13 @@ class HomeFragment : Fragment() {
             layoutManager = GridLayoutManager(requireContext(), 2)
             adapter = HomeCardAdapter(
                 requireContext(),
-                categoryModels,
-                object : OnHomeItemClickListener {
-                    override fun onItemClick(position: Int, categoryModel: CategoryModel) {
-                        val intent = Intent(requireContext(), DetailsActivity::class.java)
-                        intent.putExtra("KEY_EXTRA", categoryModel)
-                        startActivity(intent)
-                        Log.d("HomeOnClick", "item has been click!")
-                    }
-                }
-            )
+                categoryModels
+            ) { _, categoryModel ->
+                val intent = Intent(requireContext(), DetailsActivity::class.java)
+                intent.putExtra("KEY_EXTRA", categoryModel)
+                startActivity(intent)
+                Log.d("HomeOnClick", "item has been click!")
+            }
         }
 
         return binding.root

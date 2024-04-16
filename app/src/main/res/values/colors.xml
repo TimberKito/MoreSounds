@@ -5,4 +5,5 @@
     <color name="color_main">#FF9800</color>
     <color name="color_bg_item">#80BFEFFF</color>
     <color name="color_bg">#FFE4E1</color>
+    <color name="color_mid">#C4DBE6</color>
 </resources>
