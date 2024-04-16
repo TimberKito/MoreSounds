@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
@@ -30,7 +31,7 @@ class LikeCardAdapter(
 
         val imgItemPer = itemView.findViewById<ImageView>(R.id.img_like)
         val textItemName = itemView.findViewById<TextView>(R.id.tv_like_name)
-        val rootCard = itemView.findViewById<CardView>(R.id.layout_rating)
+        val rootCard = itemView.findViewById<LinearLayout>(R.id.like_layout_rating)
 
     }
 

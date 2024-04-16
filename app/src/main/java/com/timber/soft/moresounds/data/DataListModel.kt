@@ -9,7 +9,7 @@ import java.io.Serializable
 data class DataListModel(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
-    val classId: String,
+    val classId: String?=null,
     var isCollect: Boolean = false,
 
     val mp3Url: String,

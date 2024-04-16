@@ -39,7 +39,7 @@ class LikeFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this)[LikeViewModel::class.java]
+        viewModel = ViewModelProvider(this).get(LikeViewModel::class.java)
         viewModel.getList().observe(viewLifecycleOwner, Observer {
             likeCardAdapter.updateData(it)
         })

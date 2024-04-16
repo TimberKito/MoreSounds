@@ -3,6 +3,7 @@ package com.timber.soft.moresounds
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -33,6 +34,7 @@ class PlayActivity : AppCompatActivity() {
 
         val dataListModel = intent.getSerializableExtra("KEY_EXTRA") as DataListModel
 
+        binding.playLike.isSelected = dataListModel.isCollect
         binding.playBack.setOnClickListener() {
             finish()
         }
@@ -42,18 +44,30 @@ class PlayActivity : AppCompatActivity() {
         try {
             Glide.with(this).load(dataListModel.preUrl)
                 .transition(DrawableTransitionOptions.withCrossFade())
-                // TODO 还未设置加载失败占位图
+                // TODO 设置加载失败占位图方法
                 .into(binding.playPreImg)
         } catch (e: Exception) {
             e.printStackTrace()
         }
 
         binding.playLike.setOnClickListener() {
-            binding.playLike.isSelected = !binding.playLike.isSelected
-            CoroutineScope(Dispatchers.IO).launch {
-                AppDatabase.dataBase.getDataListModelDao().updateData(dataListModel.apply {
-                    isCollect = binding.playLike.isSelected
-                })
+
+            if (!binding.playLike.isSelected) {
+                binding.playLike.isSelected = !binding.playLike.isSelected
+                CoroutineScope(Dispatchers.IO).launch {
+                    AppDatabase.dataBase.getDataListModelDao().insertData(dataListModel.apply {
+                        isCollect = binding.playLike.isSelected
+                    })
+                }
+
+            } else {
+                binding.playLike.isSelected = !binding.playLike.isSelected
+                //TODO: 实现取消喜欢
+                CoroutineScope(Dispatchers.IO).launch {
+                    AppDatabase.dataBase.getDataListModelDao().deleteData(dataListModel.apply {
+                        isCollect = binding.playLike.isSelected
+                    })
+                }
             }
         }
     }
