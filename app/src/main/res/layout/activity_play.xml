@@ -81,13 +81,13 @@
         android:layout_marginEnd="28dp"
         app:cardCornerRadius="12dp">
 
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="vertical">
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -96,16 +96,18 @@
                 <TextView
                     android:id="@+id/tv_start"
                     android:layout_width="40dp"
+                    android:text="@string/play_page_time"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp" />
+                    android:layout_marginStart="18dp" />
 
                 <SeekBar
                     android:id="@+id/seekbar"
-                    android:layout_width="270dp"
+                    android:layout_width="240dp"
                     android:layout_height="wrap_content" />
 
                 <TextView
                     android:id="@+id/tv_end"
+                    android:text="@string/play_page_time"
                     android:layout_width="40dp"
                     android:layout_height="wrap_content" />
             </LinearLayout>
@@ -138,20 +140,29 @@
                     android:text="Pause"
                     android:textColor="@color/color_main" />
 
-                <Button
-                    android:id="@+id/stop"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/color_bg"
-                    android:text="Stop"
-                    android:textColor="@color/color_main" />
+<!--                <Button-->
+<!--                    android:id="@+id/stop"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginEnd="10dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:backgroundTint="@color/color_bg"-->
+<!--                    android:text="Stop"-->
+<!--                    android:textColor="@color/color_main" />-->
             </LinearLayout>
         </LinearLayout>
 
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/progressbar"
+                android:visibility="gone"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/black"/>
 
     </androidx.cardview.widget.CardView>
+
+
 
 
 </LinearLayout>

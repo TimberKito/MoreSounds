@@ -9,8 +9,9 @@ import java.io.Serializable
 data class DataListModel(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
-    val classId: String?=null,
+    val classId: String? = null,
     var isCollect: Boolean = false,
+    var downloadUrl: String? = null,
 
     val mp3Url: String,
     val preUrl: String,
