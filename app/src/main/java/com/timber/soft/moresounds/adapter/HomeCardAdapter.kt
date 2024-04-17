@@ -10,9 +10,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.bumptech.glide.load.resource.transcode.DrawableBytesTranscoder
 import com.timber.soft.moresounds.R
-
 import com.timber.soft.moresounds.data.CategoryModel
 import com.timber.soft.moresounds.listener.OnHomeItemClickListener
 

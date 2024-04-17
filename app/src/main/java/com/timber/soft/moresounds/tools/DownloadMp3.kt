@@ -1,17 +1,12 @@
 package com.timber.soft.moresounds.tools
 
 import android.content.Context
-import android.os.AsyncTask
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import okhttp3.OkHttpClient
-import okhttp3.Request
 import java.io.File
-import java.io.FileOutputStream
-import java.io.IOException
 
 object DownloadMp3 {
 

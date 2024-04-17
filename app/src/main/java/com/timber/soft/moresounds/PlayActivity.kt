@@ -1,20 +1,15 @@
 package com.timber.soft.moresounds
 
-import android.content.Context
 import android.graphics.Color
 import android.media.MediaPlayer
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.Environment
-import android.util.Log
 import android.view.View
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import androidx.room.Database
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.timber.soft.moresounds.data.DataListModel
@@ -24,7 +19,6 @@ import com.timber.soft.moresounds.tools.DownloadMp3
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.io.File
 import java.util.Timer
 import java.util.TimerTask
 
@@ -36,6 +30,7 @@ class PlayActivity : AppCompatActivity() {
     private var isSeekbarChaning: Boolean = false
     private var isDownload = false
 
+    private var timer: Timer? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPlayBinding.inflate(layoutInflater)
@@ -57,11 +52,12 @@ class PlayActivity : AppCompatActivity() {
         try {
             Glide.with(this).load(dataListModel.preUrl)
                 .transition(DrawableTransitionOptions.withCrossFade())
-                .error(R.drawable.svg_loading_error)
-                .into(binding.playPreImg)
+                .error(R.drawable.svg_loading_error).into(binding.playPreImg)
         } catch (e: Exception) {
             e.printStackTrace()
         }
+
+        timer = Timer()
 
         binding.playLike.setOnClickListener() {
             if (!binding.playLike.isSelected) {
@@ -167,7 +163,8 @@ class PlayActivity : AppCompatActivity() {
 
     private fun play() {
         binding.seekbar.setMax(mediaPlayer.duration)
-        Timer().run {
+
+        timer?.run {
             schedule(object : TimerTask() {
                 override fun run() {
                     if (!isSeekbarChaning) {
@@ -233,6 +230,7 @@ class PlayActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+        timer?.cancel()
         mediaPlayer.stop()
         mediaPlayer.release()
     }

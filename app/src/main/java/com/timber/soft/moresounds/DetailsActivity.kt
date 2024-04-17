@@ -7,15 +7,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.timber.soft.moresounds.adapter.DetailsCardAdapter
-import com.timber.soft.moresounds.adapter.HomeCardAdapter
 import com.timber.soft.moresounds.data.CategoryModel
-import com.timber.soft.moresounds.data.DataListModel
 import com.timber.soft.moresounds.databinding.ActivityDetailsBinding
-import com.timber.soft.moresounds.listener.OnDetailsItemClickListener
-import com.timber.soft.moresounds.listener.OnHomeItemClickListener
 
 class DetailsActivity : AppCompatActivity() {
 

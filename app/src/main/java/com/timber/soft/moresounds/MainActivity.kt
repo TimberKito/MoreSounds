@@ -3,12 +3,8 @@ package com.timber.soft.moresounds
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -53,6 +49,7 @@ class MainActivity : AppCompatActivity(), OnPageChangeListener {
         binding.tabInfo.setOnClickListener {
             setTabSelect(2)
         }
+        binding.viewpager.setOnPageChangeListener(this)
     }
 
     private fun setTabSelect(position: Int) {
