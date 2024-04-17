@@ -45,7 +45,7 @@ class DetailsCardAdapter(
         try {
             Glide.with(context).load(dataListModel.preUrl)
                 .transition(DrawableTransitionOptions.withCrossFade())
-                // TODO 还未设置加载失败占位图
+                .error(R.drawable.svg_loading_error)
                 .into(holder.imgItemPer)
         } catch (e: Exception) {
             e.printStackTrace()

@@ -57,7 +57,7 @@ class PlayActivity : AppCompatActivity() {
         try {
             Glide.with(this).load(dataListModel.preUrl)
                 .transition(DrawableTransitionOptions.withCrossFade())
-                // TODO 设置加载失败占位图方法
+                .error(R.drawable.svg_loading_error)
                 .into(binding.playPreImg)
         } catch (e: Exception) {
             e.printStackTrace()

@@ -48,7 +48,7 @@ class LikeCardAdapter(
         likeDataList[position].run {
             holder.textItemName.text = title
             Glide.with(context).load(preUrl).transition(DrawableTransitionOptions.withCrossFade())
-                // TODO 还未设置加载失败占位图
+                .error(R.drawable.svg_loading_error)
                 .into(holder.imgItemPer)
             holder.rootCard.setOnClickListener() {
                 context.startActivity(Intent(context, PlayActivity::class.java).apply {
