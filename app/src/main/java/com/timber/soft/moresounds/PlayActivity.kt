@@ -62,6 +62,9 @@ class PlayActivity : AppCompatActivity() {
         binding.playLike.setOnClickListener() {
             if (!binding.playLike.isSelected) {
                 binding.playLike.isSelected = !binding.playLike.isSelected
+                Toast.makeText(
+                    this@PlayActivity, "You have collected this sound.", Toast.LENGTH_SHORT
+                ).show()
                 CoroutineScope(Dispatchers.IO).launch {
                     AppDatabase.dataBase.getDataListModelDao().insertData(dataListModel.apply {
                         isCollect = binding.playLike.isSelected
@@ -70,6 +73,9 @@ class PlayActivity : AppCompatActivity() {
 
             } else {
                 binding.playLike.isSelected = !binding.playLike.isSelected
+                Toast.makeText(
+                    this@PlayActivity, "You have unfavorite this sound.", Toast.LENGTH_SHORT
+                ).show()
                 CoroutineScope(Dispatchers.IO).launch {
                     AppDatabase.dataBase.getDataListModelDao().deleteData(dataListModel.apply {
                         isCollect = binding.playLike.isSelected
@@ -112,7 +118,6 @@ class PlayActivity : AppCompatActivity() {
                     binding.progressbar.isVisible = true
                     startDownload()
                 }
-
             }
         }
 
@@ -132,7 +137,7 @@ class PlayActivity : AppCompatActivity() {
     }
 
     private fun startDownload() {
-        dataListModel.mp3Url?.let {
+        dataListModel.mp3Url.let {
             DownloadMp3.glideDownload(this, it) { file ->
                 if (file == null) {
                     isDownload = false
@@ -143,8 +148,8 @@ class PlayActivity : AppCompatActivity() {
                 } else {
                     binding.progressbar.isVisible = false
                     file.absolutePath.let { path ->
-                        mediaPlayer?.setDataSource(path)
-                        mediaPlayer?.prepare()
+                        mediaPlayer.setDataSource(path)
+                        mediaPlayer.prepare()
                         isDownload = true
                         play()
                         CoroutineScope(Dispatchers.IO).launch {
@@ -162,8 +167,8 @@ class PlayActivity : AppCompatActivity() {
     }
 
     private fun play() {
-        binding.seekbar.setMax(mediaPlayer.duration)
 
+        binding.seekbar.setMax(mediaPlayer.duration)
         timer?.run {
             schedule(object : TimerTask() {
                 override fun run() {
@@ -173,6 +178,7 @@ class PlayActivity : AppCompatActivity() {
                 }
             }, 0, 50)
         }
+
         mediaPlayer.start()
 
     }
